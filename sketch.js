@@ -1,15 +1,13 @@
 function setup() {
-  createCanvas(480, 220);
+  createCanvas(480,120);
+  fill(0,102);
+  noStroke();
 }
 
 function draw() {
-    background(220);
-    strokeWeight(2);
-    /*for (i=10; i<410; i+=15) {
-        line(i,0,i+i/2,100);
-        fill(0);
-        ellipse(i+i/2,100,5,5);
-        line(i+i/2,100,i*1.2,220);
-    }*/
-    ellipse(width/2,height/2,30,30);
+    background(204);
+    ellipse(mouseX,mouseY,9,9);
+    print(mouseX,mouseY);
+    document.getElementById("hor").innerHTML = mouseX;
+    document.getElementById("vert").innerHTML = Math.floor(mouseY);
 }
