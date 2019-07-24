@@ -8,16 +8,17 @@
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
     <script src="p5.sound.js"></script>
-    <script src="hangman.js"></script>
     <script src="sketch.js"></script>
   </head>
   <body>
     <h1>Hangman</h1>
-    <h2 id="name">Welcome! <button id="play" onClick="getName()">Ready to Play</button></h2>
+    <h2 id="name">Welcome! <button id="play" style="display:block" onClick="getName()">Ready to Play</button></h2>
     <h3 id="displayGuess"></h3>
     <h3 id="displayAnswer"></h3>
-    <button id="again" style="display:none" onClick="promptGuess()">I'm ready to guess again</button></h2>
-
+    <div id="again" style="display:none">
+        <button onClick="promptGuess()">I'm ready to guess again</button></h2>
+        <h3 id="listOfGuesses"></h3>
+    </div>
     <h3>Guess the word before the drawing is complete</h3>
   </body>
 </html>

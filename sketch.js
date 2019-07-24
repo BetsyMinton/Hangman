@@ -6,13 +6,15 @@ var words = [
     "website",
 ];
 
+var wrongGuesses = [];
+var name;
 var word = words[Math.floor(Math.random() * words.length)];
 
 var drawBody = 0;
 
 function getName() {
-    var name = prompt("What's your name?");
-    return welcome(name);
+    name = prompt("What's your name?");
+    return welcome();
 }
 
 var answerArray = [];
@@ -44,6 +46,7 @@ function userGuess() {
         }
         if (checkLength === remainingLetters) {
             alert("Wrong, try again!");
+            wrongGuesses.push(" " + guess);
             drawBody++;
         } else {
             checkLength = remainingLetters;
@@ -57,6 +60,7 @@ function userGuess() {
 function printLetterGuess(guess) {
     document.getElementById("displayGuess").innerHTML = ("You guessed: "  + guess);
      joinAnswer();
+    document.getElementById("listOfGuesses").innerHTML = (wrongGuesses);
 }
 
 
@@ -90,9 +94,37 @@ function draw() {
     line(50,350,250,350);
     strokeWeight(4);
     line(155,50,155,80);
-    if (drawBody == 1) {
-        strokeWeight(2);
-        fill(205);
-        ellipse(155,100,40,40);
+    if (drawBody > 0) {
+      //head
+      strokeWeight(3);
+      fill(205);
+      ellipse(155,105,50,50);
+      }
+    if (drawBody > 1) {
+      //body
+      strokeWeight(8);
+      line(155,132,155,210);
     }
+    if (drawBody > 2) {
+      //arms
+      strokeWeight(6);
+      line(155,138,180,200);
+    }
+    if (drawBody > 3) {
+      line(155,138,130,200);
+    }
+      //legs
+    if (drawBody > 4) {
+      line(155,210,180,300);
+    }
+    if (drawBody > 5) {
+      line(155,210,130,300);
+      gameOver();
+    }
+}
+
+function gameOver() {
+  document.getElementById("name").innerHTML = ("Oh no, "  + name + ", you are out of guesses.  Game over!");
+  document.getElementById("again").style.display = "none";
+  document.getElementById("play").style.display = "none";
 }
