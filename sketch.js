@@ -24,7 +24,7 @@ var guess;
 var remainingLetters = word.length;
 var checkLength = word.length;
 
-function welcome(name) {
+function welcome() {
   document.getElementById("name").innerHTML = ("Hello "  + name + ", let's play.");
     for (var i = 0; i < word.length; i++) {
         answerArray[i] = "_";
