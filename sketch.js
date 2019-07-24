@@ -33,7 +33,8 @@ function welcome() {
 }
 
 function userGuess() {
-    guess = prompt("Guess a letter or click cancel to stop playing");
+    preGuess = prompt("Guess a letter or click cancel to stop playing");
+    guess = preGuess.toLowerCase();
     if (guess.length !==1) {
         alert("please guess a letter");
         guess = prompt("Guess a letter or click cancel to stop playing");
